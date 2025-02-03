@@ -7,7 +7,13 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://yogaclassfrontend.onrender.com", // Replace with your frontend URL
+  methods: "GET,POST",
+  allowedHeaders: "Content-Type",
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Use Local MongoDB URI for Compass
